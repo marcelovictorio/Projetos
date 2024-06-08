@@ -1,0 +1,33 @@
+<?php
+// Verifica se os dados foram recebidos via POST
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Obtém os dados do formulário
+    $nome = $_POST['nome'];
+    $endereco = $_POST['endereco'];
+    $numero = $_POST['numero'];
+    $bairro = $_POST['bairro'];
+    $cidade = $_POST['cidade'];
+    $uf = $_POST['uf'];
+
+    // Monta a string com os dados formatados
+    $dados = "$nome, $endereco, $numero, $bairro, $cidade, $uf\n";
+
+    // Define o caminho do arquivo onde os dados serão salvos
+    $arquivo = 'cadastros.txt';
+
+    // Abre o arquivo no modo de escrita
+    $fp = fopen($arquivo, 'a');
+
+    // Escreve os dados no arquivo
+    fwrite($fp, $dados);
+
+    // Fecha o arquivo
+    fclose($fp);
+
+    // Redireciona de volta para a página de cadastro com uma mensagem de sucesso
+    header("Location: cadastro.html?status=success");
+} else {
+    // Se os dados não foram recebidos via POST, redireciona de volta para a página de cadastro com uma mensagem de erro
+    header("Location: cadastro.html?status=error");
+}
+?>
