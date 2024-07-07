@@ -39,7 +39,6 @@
         }
         .buttons .limpar {
             background-color: green;
-            color: white;
             border: none;
         }
         .buttons .fechar {
@@ -47,25 +46,11 @@
             color: white;
             border: none;
         }
-        .cadastros {
-            max-width: 500px;
-            margin: 20px auto;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .cadastro-item {
-            border-bottom: 1px solid #eee;
-            padding: 10px 0;
-        }
-        .cadastro-item:last-child {
-            border-bottom: none;
-        }
     </style>
 </head>
 <body>
     <h1>Cadastro de Clientes</h1>
-    <form id="cadastroForm" action="salvar_cadastro.php" method="post">
+    <form id="cadastroForm">
         <label for="nome">Nome</label>
         <input type="text" id="nome" name="nome" required>
 
@@ -91,12 +76,6 @@
         </div>
     </form>
 
-    <div id="cadastros" class="cadastros"></div>
-
-    <script>
-        function limparFormulario() {
-            document.getElementById('cadastroForm').reset();
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
